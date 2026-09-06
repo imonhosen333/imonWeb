@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/png" href="img/logo/imon's.png" />
+  <title>Blog Post - Imon Hosen</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <a href="index.html" class="header__logo">Imon Hosen</a>
+        <div class="header__navigation">
+          <div class="header__menu menu">
+            <nav class="menu__body">
+              <ul class="menu__list">
+                <li class="menu__item"><a href="index.html#home" class="menu__link"><span class="hash">#</span>home</a></li>
+                <li class="menu__item"><a href="blog.html" class="menu__link active"><span class="hash">#</span>blog</a></li>
+                <li class="menu__item menu__item--with-button">
+                  <a href="admin-login.html" id="admin-link" class="menu__link"><span class="hash">#</span>admin</a>
+                  <a href="index.html#contact" class="actions-header__button mobile-button">Let's Talk</a>
+                </li>
+              </ul>
+              <a href="index.html#contact" class="actions-header__button desktop-button">Let's Talk</a>
+            </nav>
+          </div>
+          <div class="header__actions actions-header">
+            <button type="button" class="menu__icon icon-menu"><span></span></button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <main class="page">
+      <article class="blog-post">
+        <div class="blog-post__container">
+          <div class="blog-post__header">
+            <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            <div class="post-meta">
+              <span id="post-category" class="post-category">Category</span>
+              <span id="post-date" class="post-date">Date</span>
+            </div>
+            <h1 id="post-title" class="blog-post__title">Blog Post Title</h1>
+          </div>
+          
+          <div class="blog-post__featured-image">
+            <img id="post-image" src="img/blog/placeholder.jpg" alt="Blog Post">
+          </div>
+          
+          <div id="post-content" class="blog-post__content">
+            <!-- Blog post content will be loaded here -->
+            <p>Loading content...</p>
+          </div>
+        </div>
+      </article>
+      
+      <section class="related-posts">
+        <div class="related-posts__container">
+          <h2 class="related-posts__title">Related Articles</h2>
+          <div id="related-posts-grid" class="related-posts__grid">
+            <!-- Related posts will be loaded here -->
+          </div>
+        </div>
+      </section>
+      
+      <section class="blog-newsletter">
+        <div class="blog-newsletter__container">
+          <div class="newsletter-content">
+            <h2 class="newsletter-title">Stay Updated on AI Trends</h2>
+            <p class="newsletter-text">Subscribe to my newsletter for the latest insights on artificial intelligence, machine learning, and data science.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__copyright">© 2025 <span>Imon Hosen</span>. All Rights Reserved</div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/script.js"></script>
+  <script src="js/blog-post.js"></script>
+</body>
+
+</html> 

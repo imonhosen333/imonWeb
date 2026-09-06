@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="../img/logo/imon's.png" />
+    <title>Master Microsoft Azure AI Essentials – A Complete Guide | Imon Hosen</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #00d9e0;
+            --primary-dark: #00b8be;
+            --secondary-color: #9f7aea;
+            --accent-color: #fd79a8;
+            --text-dark: #f8f9fa;
+            --text-light: #ced4da;
+            --text-muted: #adb5bd;
+            --background-dark: #121212;
+            --background-card: #1e1e1e;
+            --background-light: #2d2d2d;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .blog-article {
+            max-width: 820px;
+            margin: 2rem auto 4rem;
+            padding: 0;
+        }
+
+        .blog-article__header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding: 3rem 2rem;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: var(--border-radius);
+        }
+
+        .blog-article__header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .blog-article__meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .blog-article__meta .post-category {
+            color: var(--primary-color);
+            font-weight: 600;
+            position: relative;
+            padding: 0.25rem 1rem;
+            background-color: rgba(0, 217, 224, 0.15);
+            border-radius: 20px;
+        }
+
+        .blog-article__meta .post-date {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-article__meta .post-date::before {
+            content: '\f073';
+            font-family: 'Font Awesome 5 Free';
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .blog-article__title {
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-article__featured-image-container {
+            margin: 0 auto 3rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .blog-article__featured-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-article__featured-image:hover {
+            transform: scale(1.02);
+        }
+
+        .blog-article__content-wrapper {
+            background-color: var(--background-card);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .blog-article__content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .blog-article__content h2 {
+            font-size: 1.9rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .blog-article__content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .blog-article__content h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.25rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .blog-article__content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .blog-article__content ul,
+        .blog-article__content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.25rem;
+            color: var(--text-light);
+        }
+
+        .blog-article__content li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .blog-article__content ul li::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .blog-article__content ol {
+            counter-reset: item;
+            list-style-type: none;
+        }
+
+        .blog-article__content ol li {
+            counter-increment: item;
+        }
+
+        .blog-article__content ol li::before {
+            content: counter(item) ".";
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            color: var(--primary-color);
+            font-weight: 650;
+        }
+
+        .blog-article__content code {
+            background: var(--background-light);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+            font-family: monospace;
+        }
+
+        .blog-article__content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: rgba(0, 217, 224, 0.05);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .blog-article__content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--background-card);
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .back-to-blog i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-blog:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Section dividers */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0;
+            color: var(--text-muted);
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section-divider::before {
+            margin-right: 1rem;
+        }
+
+        .section-divider::after {
+            margin-left: 1rem;
+        }
+
+        .section-divider i {
+            color: var(--primary-color);
+        }
+
+        /* Newsletter section styling */
+        .blog-newsletter {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.8), rgba(0, 217, 224, 0.8));
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .newsletter-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-form button {
+            background-color: var(--background-dark);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Reading progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+        }
+
+        /* Key takeaways section */
+        .key-takeaways {
+            background-color: rgba(0, 217, 224, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0 3rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .key-takeaways h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .key-takeaways i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .key-takeaways ul {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--background-card);
+        }
+
+        .footer__copyright {
+            color: var(--text-light);
+        }
+
+        .footer__copyright span {
+            color: var(--primary-color);
+        }
+
+        /* Header and menu items */
+        .header {
+            background-color: var(--background-dark);
+        }
+
+        .header__logo {
+            color: var(--text-dark);
+        }
+
+        .menu__link {
+            color: var(--text-light);
+        }
+
+        .menu__link:hover, 
+        .menu__link.active {
+            color: var(--primary-color);
+        }
+
+        .hash {
+            color: var(--primary-color);
+        }
+
+        .actions-header__button {
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+        }
+
+        @media (max-width: 768px) {
+            .blog-article {
+                margin: 1rem auto 3rem;
+            }
+
+            .blog-article__header {
+                padding: 2rem 1.5rem;
+            }
+
+            .blog-article__title {
+                font-size: 2rem;
+            }
+
+            .blog-article__content-wrapper {
+                padding: 1.5rem;
+            }
+
+            .blog-article__content {
+                font-size: 1rem;
+            }
+
+            .blog-article__content h2 {
+                font-size: 1.6rem;
+            }
+
+            .blog-article__content h3 {
+                font-size: 1.3rem;
+            }
+
+            .newsletter-title {
+                font-size: 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: var(--border-radius);
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Reading progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <a href="../index.html" class="header__logo">Imon Hosen</a>
+                <div class="header__navigation">
+                    <div class="header__menu menu">
+                        <nav class="menu__body">
+                            <ul class="menu__list">
+                                <li class="menu__item"><a href="../index.html" class="menu__link"><span class="hash">#</span>home</a></li>
+                                <li class="menu__item"><a href="https://nobannoai.com/" target="_blank" class="menu__link"><span class="hash">#</span>nobannoAI</a></li>
+                                <li class="menu__item"><a href="../blog.html" class="menu__link active"><span class="hash">#</span>blog</a></li>
+                                <li class="menu__item menu__item--with-button">
+                                    <a href="../index.html#contact" class="actions-header__button mobile-button">Let's Talk</a>
+                                </li>
+                            </ul>
+                            <a href="../index.html#contact" class="actions-header__button desktop-button">Let's Talk</a>
+                        </nav>
+                    </div>
+                    <div class="header__actions actions-header">
+                        <button type="button" class="menu__icon icon-menu"><span></span></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page">
+            <article class="blog-article">
+                <a href="../blog.html" class="back-to-blog">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Blog
+                </a>
+                
+                <header class="blog-article__header">
+                    <div class="blog-article__meta">
+                        <span class="post-category">Cloud AI</span>
+                        <span class="post-date">April 21, 2025</span>
+                    </div>
+                    <h1 class="blog-article__title">Master Microsoft Azure AI Essentials – A Complete Guide in One Read</h1>
+                </header>
+
+                <div class="blog-article__featured-image-container">
+                    <img src="../bolg_post/azure ai.jpg" alt="Azure AI Essentials" class="blog-article__featured-image">
+                </div>
+
+                <div class="blog-article__content-wrapper">
+                    <div class="key-takeaways">
+                        <h3><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Azure AI provides a comprehensive suite of services for building intelligent applications</li>
+                            <li>Core components include Azure Machine Learning and Cognitive Services</li>
+                            <li>Implementation success requires clear objectives and proper data governance</li>
+                            <li>Azure AI is being applied across healthcare, finance, retail, and manufacturing</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article__content">
+                        <h2>Introduction to Azure AI</h2>
+                        <p>Artificial Intelligence (AI) is no longer a futuristic concept—it's the driving force behind modern innovation across industries. Microsoft Azure AI provides a comprehensive suite of services and tools that enable organizations to build, deploy, and scale AI solutions efficiently.</p>
+
+                        <div class="section-divider">
+                            <i class="fas fa-cube"></i>
+                        </div>
+
+                        <h2>Core Components of Azure AI</h2>
+                        <h3>1. Azure Machine Learning</h3>
+                        <p>Azure Machine Learning is a cloud-based platform that enables you to build, train, and deploy machine learning models. Key features include:</p>
+                        <ul>
+                            <li>Automated ML capabilities for model development</li>
+                            <li>Integrated development environments (IDE) support</li>
+                            <li>Scalable compute resources for training</li>
+                            <li>Enterprise-grade security and governance</li>
+                        </ul>
+
+                        <h3>2. Azure Cognitive Services</h3>
+                        <p>Pre-built AI services that enable applications to see, hear, speak, understand, and make decisions:</p>
+                        <ul>
+                            <li>Vision Services for image analysis and recognition</li>
+                            <li>Language Services for natural language processing</li>
+                            <li>Speech Services for voice recognition and synthesis</li>
+                            <li>Decision Services for personalized recommendations</li>
+                        </ul>
+
+                        <div class="section-divider">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+
+                        <h2>Getting Started with Azure AI</h2>
+                        <p>To begin your journey with Azure AI, follow these essential steps:</p>
+                        <ol>
+                            <li>Set up an Azure account and create a resource group</li>
+                            <li>Explore the Azure AI Studio interface</li>
+                            <li>Create your first AI service instance</li>
+                            <li>Test and integrate AI capabilities into your applications</li>
+                        </ol>
+
+                        <blockquote>
+                            <p>"Azure AI provides the building blocks developers and data scientists need to infuse intelligence into their applications without requiring deep AI expertise."</p>
+                        </blockquote>
+
+                        <div class="section-divider">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+
+                        <h2>Best Practices for Azure AI Implementation</h2>
+                        <p>When implementing Azure AI solutions, consider these best practices:</p>
+                        <ul>
+                            <li>Start with clear business objectives</li>
+                            <li>Ensure data quality and governance</li>
+                            <li>Implement proper security measures</li>
+                            <li>Monitor and optimize performance</li>
+                            <li>Scale resources based on demand</li>
+                        </ul>
+
+                        <div class="section-divider">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+
+                        <h2>Real-World Applications</h2>
+                        <p>Azure AI is being used across various industries:</p>
+                        <ul>
+                            <li>Healthcare: Disease prediction and medical imaging analysis</li>
+                            <li>Finance: Fraud detection and risk assessment</li>
+                            <li>Retail: Customer behavior analysis and inventory optimization</li>
+                            <li>Manufacturing: Predictive maintenance and quality control</li>
+                        </ul>
+
+                        <div class="section-divider">
+                            <i class="fas fa-brain"></i>
+                        </div>
+
+                        <h2>Future of Azure AI</h2>
+                        <p>The future of Azure AI looks promising with continuous developments in:</p>
+                        <ul>
+                            <li>Advanced neural networks and deep learning capabilities</li>
+                            <li>Enhanced natural language understanding</li>
+                            <li>Improved computer vision and spatial computing</li>
+                            <li>Greater integration with edge computing</li>
+                        </ul>
+
+                        <div class="section-divider">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+
+                        <h2>Conclusion</h2>
+                        <p>Microsoft Azure AI provides a robust platform for organizations to leverage artificial intelligence capabilities. By understanding its core components and following best practices, you can successfully implement AI solutions that drive innovation and business value.</p>
+                    </div>
+                </div>
+            </article>
+
+            <section class="blog-newsletter">
+                <div class="blog-newsletter__container">
+                    <div class="newsletter-content">
+                        <h2 class="newsletter-title">Stay Updated on AI Trends</h2>
+                        <p class="newsletter-text">Subscribe to my newsletter for the latest insights on artificial intelligence, machine learning, and data science.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__copyright">© 2025 <span>Imon Hosen</span>. All Rights Reserved</div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/script.js"></script>
+    <script>
+        // Reading progress bar functionality
+        window.onscroll = function() {
+            updateProgressBar();
+        };
+
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+    </script>
+</body>
+
+</html> 

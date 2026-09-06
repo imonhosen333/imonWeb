@@ -1,0 +1,646 @@
+/* Hobbies, Skills, and Projects Sections */
+.hobbies, .skills, .projects {
+  padding: 60px 0;
+  background-color: transparent;
+}
+
+.hobbies__container, .skills__container, .projects__container {
+  max-width: 72.624rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hobbies__title, .skills__title, .projects__title {
+  color: var(--light-text);
+  margin-bottom: 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hobbies__title .letter, .skills__title .letter, .projects__title .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-right: -0.05em;
+}
+
+.hobbies__title .letter.animate, .skills__title .letter.animate, .projects__title .letter.animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hobbies__title .letter.animate.visible, .skills__title .letter.animate.visible, .projects__title .letter.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hobbies__title .dash, .skills__title .dash, .projects__title .dash {
+  color: #00d9e0;
+  margin-left: 0.5rem;
+  display: inline-block;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  font-size: 1.2rem;
+}
+
+.hobbies__title .dash.animate, .skills__title .dash.animate, .projects__title .dash.animate {
+  transform: scaleX(0);
+}
+
+.hobbies__title .dash.animate.visible, .skills__title .dash.animate.visible, .projects__title .dash.animate.visible {
+  transform: scaleX(1);
+}
+
+/* Hobby and Skill Boxes */
+.hobby-boxes, .skill-boxes, .project-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hobby-box, .skill-box, .project-box {
+  background-color: transparent;
+  border: 2px solid var(--light-text);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 100px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  max-width: 300px;
+  position: relative;
+}
+
+.hobby-box:hover, .skill-box:hover, .project-box:hover {
+  transform: translateY(-5px);
+  border-color: #00d9e0;
+  background-color: transparent;
+}
+
+.hobby-icon, .skill-icon, .project-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 50%;
+  color: #00d9e0;
+  font-size: 1.25rem;
+  border: 2px solid #00d9e0;
+  transition: all 0.3s ease;
+}
+
+/* Specific icon colors */
+.code-icon, .js-icon, .web-icon {
+  color: #61dafb;
+  border-color: #61dafb;
+}
+
+.chess-icon, .react-icon, .mobile-icon {
+  color: #ff7e5f;
+  border-color: #ff7e5f;
+}
+
+.globe-icon, .node-icon, .ai-icon {
+  color: #9c88ff;
+  border-color: #9c88ff;
+}
+
+.photo-icon, .mongo-icon, .data-icon {
+  color: #00b894;
+  border-color: #00b894;
+}
+
+.podcast-icon, .ts-icon, .game-icon {
+  color: #fdcb6e;
+  border-color: #fdcb6e;
+}
+
+.hobby-box:hover .hobby-icon, .skill-box:hover .skill-icon, .project-box:hover .project-icon {
+  transform: scale(1.1);
+}
+
+/* Keep the original colors on hover */
+.hobby-box:hover .code-icon, .skill-box:hover .js-icon, .project-box:hover .web-icon {
+  color: #61dafb;
+  border-color: #61dafb;
+}
+
+.hobby-box:hover .chess-icon, .skill-box:hover .react-icon, .project-box:hover .mobile-icon {
+  color: #ff7e5f;
+  border-color: #ff7e5f;
+}
+
+.hobby-box:hover .globe-icon, .skill-box:hover .node-icon, .project-box:hover .ai-icon {
+  color: #9c88ff;
+  border-color: #9c88ff;
+}
+
+.hobby-box:hover .photo-icon, .skill-box:hover .mongo-icon, .project-box:hover .data-icon {
+  color: #00b894;
+  border-color: #00b894;
+}
+
+.hobby-box:hover .podcast-icon, .skill-box:hover .ts-icon, .project-box:hover .game-icon {
+  color: #fdcb6e;
+  border-color: #fdcb6e;
+}
+
+.hobby-desc, .skill-desc, .project-desc {
+  color: var(--light-text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 auto;
+}
+
+.hobby-box:hover .hobby-desc, .skill-box:hover .skill-desc, .project-box:hover .project-desc {
+  color: #00d9e0;
+}
+
+/* Specific text hover colors */
+.hobby-box:nth-child(1):hover .hobby-desc, .skill-box:nth-child(1):hover .skill-desc, .project-box:nth-child(1):hover .project-desc {
+  color: #61dafb;
+}
+
+.hobby-box:nth-child(2):hover .hobby-desc, .skill-box:nth-child(2):hover .skill-desc, .project-box:nth-child(2):hover .project-desc {
+  color: #ff7e5f;
+}
+
+.hobby-box:nth-child(3):hover .hobby-desc, .skill-box:nth-child(3):hover .skill-desc, .project-box:nth-child(3):hover .project-desc {
+  color: #9c88ff;
+}
+
+.hobby-box:nth-child(4):hover .hobby-desc, .skill-box:nth-child(4):hover .skill-desc, .project-box:nth-child(4):hover .project-desc {
+  color: #00b894;
+}
+
+.hobby-box:nth-child(5):hover .hobby-desc, .skill-box:nth-child(5):hover .skill-desc, .project-box:nth-child(5):hover .project-desc {
+  color: #fdcb6e;
+}
+
+/* Project Boxes - New Design */
+.project-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.project-box {
+  background-color: #1e2124;
+  border: 1px solid #2c2f33;
+  border-radius: 8px;
+  padding: 0;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #4a4eff, #7000ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image::before {
+  content: attr(data-placeholder);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-tech {
+  color: #8a8d91;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-family: monospace;
+}
+
+.project-title {
+  color: var(--light-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.project-desc {
+  color: #b9bbbe;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: transparent;
+  border: 1px solid #8a8d91;
+  border-radius: 4px;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.project-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.github-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: var(--light-text);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.github-link:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* Project-specific backgrounds */
+.project-box:nth-child(1) .project-image {
+  background: linear-gradient(135deg, #4a4eff, #7000ff);
+}
+
+.project-box:nth-child(2) .project-image {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.project-box:nth-child(3) .project-image {
+  background: linear-gradient(135deg, #ff7675, #fd79a8);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .project-boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hobbies, .skills, .projects {
+    padding: 4.375rem 0;
+  }
+
+  .hobbies__container, .skills__container, .projects__container {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hobbies__title, .skills__title, .projects__title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .hobby-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hobby-box {
+    padding: 1rem;
+    min-height: 80px;
+    max-width: 250px;
+  }
+  
+  .hobby-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+  }
+
+  .project-boxes {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .project-title {
+    font-size: 1.25rem;
+  }
+  
+  .skill-boxes {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .skill-box {
+    padding: 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 15px;
+  }
+  
+  .skill-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+  }
+  
+  .skill-desc {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  /* Ensure the last skill box (Software Engineering) is also properly sized */
+  .skill-box:nth-child(5) {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Skill Boxes - New Design */
+.skill-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.skill-box {
+  background-color: transparent;
+  border: 1px solid #3a3d41;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  width: calc(50% - 0.75rem);
+  position: relative;
+  min-height: 80px;
+}
+
+.skill-box:nth-child(5) {
+  width: 100%;
+  max-width: 100%;
+}
+
+.skill-box:hover {
+  transform: translateY(-3px);
+  border-color: #00d9e0;
+  background-color: rgba(0, 217, 224, 0.05);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #00d9e0;
+  font-size: 1.5rem;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+}
+
+/* Specific icon colors for data science and AI skills */
+.skill-box:nth-child(1) .skill-icon {
+  color: #61dafb; /* Programming Languages */
+}
+
+.skill-box:nth-child(2) .skill-icon {
+  color: #ff7e5f; /* Machine Learning */
+}
+
+.skill-box:nth-child(3) .skill-icon {
+  color: #9c88ff; /* Data Science */
+}
+
+.skill-box:nth-child(4) .skill-icon {
+  color: #00b894; /* AI Agent Building */
+}
+
+.skill-box:nth-child(5) .skill-icon {
+  color: #fdcb6e; /* Software Engineering */
+}
+
+.skill-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+/* Skill category styling */
+.skill-category {
+  font-weight: 600;
+  margin-right: 4px;
+  transition: all 0.3s ease;
+}
+
+.skill-category.programming {
+  color: #61dafb; /* Blue */
+}
+
+.skill-category.ml {
+  color: #ff7e5f; /* Orange */
+}
+
+.skill-category.ds {
+  color: #9c88ff; /* Purple */
+}
+
+.skill-category.ai {
+  color: #00b894; /* Green */
+}
+
+.skill-category.se {
+  color: #fdcb6e; /* Yellow */
+}
+
+/* Skill box hover effects with matching colors */
+.skill-box:nth-child(1):hover {
+  border-color: #61dafb;
+  background-color: rgba(97, 218, 251, 0.05);
+}
+
+.skill-box:nth-child(2):hover {
+  border-color: #ff7e5f;
+  background-color: rgba(255, 126, 95, 0.05);
+}
+
+.skill-box:nth-child(3):hover {
+  border-color: #9c88ff;
+  background-color: rgba(156, 136, 255, 0.05);
+}
+
+.skill-box:nth-child(4):hover {
+  border-color: #00b894;
+  background-color: rgba(0, 184, 148, 0.05);
+}
+
+.skill-box:nth-child(5):hover {
+  border-color: #fdcb6e;
+  background-color: rgba(253, 203, 110, 0.05);
+}
+
+/* Skill icon colors */
+.skill-box:nth-child(1) .skill-icon {
+  color: #61dafb;
+  border-color: #61dafb;
+}
+
+.skill-box:nth-child(2) .skill-icon {
+  color: #ff7e5f;
+  border-color: #ff7e5f;
+}
+
+.skill-box:nth-child(3) .skill-icon {
+  color: #9c88ff;
+  border-color: #9c88ff;
+}
+
+.skill-box:nth-child(4) .skill-icon {
+  color: #00b894;
+  border-color: #00b894;
+}
+
+.skill-box:nth-child(5) .skill-icon {
+  color: #fdcb6e;
+  border-color: #fdcb6e;
+}
+
+/* Restore the hover effect for skill icons */
+.skill-box:hover .skill-icon {
+  transform: scale(1.1);
+}
+
+/* Ensure text doesn't change color on hover */
+.skill-box:hover .skill-desc {
+  color: var(--light-text);
+}
+
+/* Ensure the category colors remain consistent on hover */
+.skill-box:hover .skill-category.programming {
+  color: #61dafb;
+}
+
+.skill-box:hover .skill-category.ml {
+  color: #ff7e5f;
+}
+
+.skill-box:hover .skill-category.ds {
+  color: #9c88ff;
+}
+
+.skill-box:hover .skill-category.ai {
+  color: #00b894;
+}
+
+.skill-box:hover .skill-category.se {
+  color: #fdcb6e;
+}
+
+@media (max-width: 992px) {
+  .skill-box {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  
+  .skill-boxes {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .project-boxes {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.projects__container, .skills__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects__title, .skills__title {
+  text-align: center;
+}
+
+.project-boxes {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-boxes {
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+} 
