@@ -9,12 +9,11 @@ const cacheBuster = {
     
     // Update all asset URLs with version
     updateAssetUrls: function() {
-        // Update CSS links
-        document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-            if (!link.href.includes('?v=')) {
-                link.href = this.addVersion(link.href);
-            }
-        });
+        // Stylesheets are intentionally NOT rewritten here: swapping a <link>
+        // href after the page has already rendered forces the browser to
+        // re-fetch the CSS mid-load, causing a visible flash of unstyled
+        // content on every refresh. Stylesheets carry their own fixed
+        // ?v= query string directly in the HTML instead.
 
         // Update JavaScript scripts
         document.querySelectorAll('script[src]').forEach(script => {
