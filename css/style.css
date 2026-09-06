@@ -42,7 +42,6 @@ body {
 
 .menu__link,
 .actions-header__button,
-.form__button,
 .social__title {
   font-family: "Syne", sans-serif;
   font-weight: 500;
@@ -1107,65 +1106,30 @@ body {
 .contact__wrapper {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  align-items: flex-start;
   width: 100%;
-}
-
-.contact__form {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 3rem;
-  border: 2px solid #e6eaeb;
-  border-radius: 4px;
-}
-
-.contact__form:hover {
-  border-color: #e6eaeb;
-}
-
-.contact__form:hover .form__input {
-  border-color: #e6eaeb;
 }
 
 .contact__social {
   width: 100%;
-  max-width: 300px;
+  max-width: 420px;
   padding: 3rem;
-  border: 2px solid #e6eaeb;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-  height: fit-content;
+  text-align: center;
+  border: 2px solid #00d9e0;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(0, 217, 224, 0.1), rgba(0, 217, 224, 0) 65%);
+  box-shadow: 0 0 0 1px rgba(0, 217, 224, 0.15), 0 25px 55px rgba(0, 217, 224, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact__social:hover {
-  border-color: #00d9e0;
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px rgba(0, 217, 224, 0.35), 0 30px 65px rgba(0, 217, 224, 0.3);
 }
 
 .social__title {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
   color: var(--light-text);
-}
-
-.social__email {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: var(--light-text);
-  font-weight: 500;
-}
-
-.social__email a {
-  color: var(--light-text);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social__email a:hover {
-  color: #00d9e0;
 }
 
 .social__highlight {
@@ -1174,96 +1138,31 @@ body {
 
 .social__links {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
 }
 
 .social__links a {
-  font-size: 1.5rem;
-  color: var(--light-text);
-  transition: all 0.3s ease;
-}
-
-/* Colored social media icons */
-.social__links a.github-icon,
-.social__links a.linkedin-icon,
-.social__links a.x-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.4rem;
   color: #00d9e0;
+  border: 2px solid #00d9e0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .social__links a:hover {
-  transform: translateY(-3px);
-}
-
-.social__links a.github-icon:hover,
-.social__links a.linkedin-icon:hover,
-.social__links a.x-icon:hover {
-  color: #00b8be;
-}
-
-.form__group {
-  position: relative;
-}
-
-.form__input {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background: transparent;
-  border: 2px solid #e6eaeb;
-  border-radius: 4px;
-  color: #e6eaeb;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.form__input:focus,
-.form__input:not(:placeholder-shown) {
-  border-color: #00d9e0;
-  color: #00d9e0;
-  outline: none;
-}
-
-.form__textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.form__input::placeholder {
-  color: rgba(230, 234, 235, 0.5);
-  transition: all 0.3s ease;
-}
-
-.form__input:focus::placeholder {
-  color: rgba(0, 217, 224, 0.5);
-}
-
-.form__button {
-  background: transparent;
-  color: var(--light-text);
-  padding: 1rem 2rem;
-  border: 2px solid #00d9e0;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.form__button:hover {
   background: #00d9e0;
   color: var(--primary-color);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 217, 224, 0.45);
 }
 
 @media (max-width: 992px) {
-  .contact__wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .contact__social {
-    max-width: 500px;
-  }
-
   .contact__title {
     align-self: center;
     text-align: center;
@@ -1274,20 +1173,15 @@ body {
   .contact__container {
     padding: 0 2rem;
   }
-  
+
   .contact__title {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     justify-content: center;
   }
-  
-  .contact__form,
+
   .contact__social {
     padding: 2rem;
-  }
-  
-  .form__button {
-    width: 100%;
   }
 }
 
@@ -2440,21 +2334,3 @@ body {
   }
 }
 
-/* Thank you message styling */
-.thank-you-message {
-  display: none;
-  background-color: rgba(0, 217, 224, 0.1);
-  color: #00d9e0;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: 500;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.thank-you-message.visible {
-  display: block;
-  opacity: 1;
-}

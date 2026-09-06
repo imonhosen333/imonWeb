@@ -343,25 +343,3 @@ document.addEventListener('DOMContentLoaded', () => {
   animateAboutTitle();
 });
 
-// Contact form submission handler
-document.addEventListener('DOMContentLoaded', function() {
-  const contactForm = document.getElementById('contactForm');
-  const thankYouMessage = document.getElementById('thankYouMessage');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Show thank you message
-      thankYouMessage.classList.add('visible');
-      
-      // Clear form fields
-      contactForm.reset();
-      
-      // Hide thank you message after 2 seconds
-      setTimeout(function() {
-        thankYouMessage.classList.remove('visible');
-      }, 2000);
-    });
-  }
-});
